@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,33 +36,33 @@ fun Ejemplos() {
     var expanded by remember { mutableStateOf(false) }
     var selectedOption by remember { mutableStateOf(1) }
 
-    Scaffold(
+    Scaffold{
         floatingActionButton = {
-            FloatingActionButton(
+            FloatingActionButton {
                 onClick = { // }
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Add,
-                    contentDescription = "Añadir"
-                )
+                } {
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = "Añadir"
+                    )
+                }
             }
-        }
-    ) { paddingValues ->
-        Surface(
+        } { paddingValues ->
+        Surface {
             modifier = Modifier.padding(paddingValues)
-        ) {
-            LazyColumn(
+        } {
+            LazyColumn {
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(17.dp)
-            ) {
+            } {
                 item {
                     Text(text = "Ejemplo de texto")
                     Spacer(modifier = Modifier.height(8.dp))
 
-                    Button(
-                        onClick = {mostrarMensaje = true}
-                    ) {
+                    Button {
+                        onClick = { mostrarMensaje = true }
+                    } {
                         Text("Haga click")
                     }
                     if (mostrarMensaje){
@@ -71,19 +72,19 @@ fun Ejemplos() {
                     }                    }
                     Spacer(modifier = Modifier.height(8.dp))
 
-                    TextField(
-                        value = texto,
-                        onValueChange = { texto = it },
+                    TextField{
+                        value = texto
+                        onValueChange = { texto = it }
                         label = { Text("Ejemplo del elemento TextField") }
-                    )
+                    }
 
                     Spacer(modifier = Modifier.height(8.dp))
 
-                    Image(
-                        painter = painterResource(id = programacion.jpg),
-                        contentDescription = "Ejemplo de Image",
+                    Image {
+                        painter = painterResource(id = programacion.jpg)
+                        contentDescription = "Ejemplo de Image"
                         modifier = Modifier.size(100.dp)
-                    )
+                    }
 
                     Spacer(modifier = Modifier.height(8.dp))
 
@@ -91,26 +92,26 @@ fun Ejemplos() {
                         Button(onClick = { expanded = true }) {
                             Text("Menu")
                         }
-                        DropdownMenu(
-                            expanded = expanded,
+                        DropdownMenu {
+                            expanded = expanded
                             onDismissRequest = { expanded = false }
-                        ) {
-                            DropdownMenuItem(
-                                text = { Text("Primera Opcion") },
+                        } {
+                            DropdownMenuItem {
+                                text = { Text("Primera Opcion") }
                                 onClick = { expanded = false }
-                            )
-                            DropdownMenuItem(
-                                text = { Text("Segunda Opcion") },
+                            }
+                            DropdownMenuItem {
+                                text = { Text("Segunda Opcion") }
                                 onClick = { expanded = false }
-                            )
+                            }
                         }
                     }
 
                     Spacer(modifier = Modifier.height(8.dp))
 
-                    Row(
+                    Row {
                         verticalAlignment = Alignment.CenterVertically
-                    ) {
+                    } {
                         Checkbox(
                             checked = isChecked,
                             onCheckedChange = { isChecked = it }
@@ -120,9 +121,9 @@ fun Ejemplos() {
 
                     Spacer(modifier = Modifier.height(8.dp))
 
-                    Row(
+                    Row {
                         verticalAlignment = Alignment.CenterVertically
-                    ) {
+                    } {
                         Switch(
                             checked = switchChecked,
                             onCheckedChange = { switchChecked = it }
@@ -133,43 +134,43 @@ fun Ejemplos() {
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Column {
-                        Row(
+                        Row {
                             verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            RadioButton(
-                                selected = selectedOption == 1,
+                        } {
+                            RadioButton {
+                                selected = selectedOption == 1
                                 onClick = { selectedOption = 1 }
-                            )
+                            }
                             Text("Primera opcion")
                         }
-                        Row(
+                        Row {
                             verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            RadioButton(
-                                selected = selectedOption == 2,
+                        } {
+                            RadioButton {
+                                selected = selectedOption == 2
                                 onClick = { selectedOption = 2 }
-                            )
+                            }
                             Text("Segunda opcion")
                         }
                     }
 
                     Spacer(modifier = Modifier.height(8.dp))
 
-                    Slider(
-                        value = sliderPosition,
+                    Slider{
+                        value = sliderPosition
                         onValueChange = { sliderPosition = it }
-                    )
+                    }
 
                     Spacer(modifier = Modifier.height(8.dp))
 
-                    Card(
+                    Card {
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(8.dp)
-                    ) {
-                        Column(
+                    } {
+                        Column {
                             modifier = Modifier.padding(16.dp)
-                        ) {
+                        } {
                             Text("Contenido")
                             Text("Contenido 2")
                         }
